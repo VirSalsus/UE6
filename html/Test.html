@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Einmaleins</title>
+    <link href="../Style.css" rel="stylesheet">
+</head>
+<body>
+
+<h1> Einmaleins-Trainer </h1>
+
+<form onsubmit="return false">
+
+    <input id="fak1" type="text" value=""> *
+    <input id="fak2" type="text" value=""> =
+    <input required id="result" type="text">
+    <br> <br>
+    <input pys-onClick="auswertung" type="submit" value="Prüfen">
+    <br> <br>
+    <p id='output'></p>
+
+
+</form>
+<py-script>
+
+    def auswertung():
+        getparameter = cgi.FieldStorage()
+        result = getparameter.getvalue("result")
+        result_place = Element('output')
+        if fak1 * fak2 == result:
+            result_place.write("Korrekt. /n <a href=/ü6/logik.py> Nochmal spielen</a>")
+        else:
+            result_place.write("Leider nicht korrekt. Bitte Produkt korrigieren.")
+
+</py-script>
+</body>
+</html>
